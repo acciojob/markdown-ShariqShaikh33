@@ -10,3 +10,38 @@ button{
     justify-content: center;
     align-items: center;
 }
+
+
+
+.mainDiv{
+    border: 1px solid black;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: rows;
+    justify-content: center;
+    align-items: center;
+}
+
+.textarea{
+    border: 1px solid black;
+    width: 50%;
+    height: 100%;
+}
+
+.text{
+    width: 100%;
+    height: 99vh;
+    background: #eff1f5;
+    color: black;
+    font-size: 16px;
+}
+
+.preview{
+    background: #e8eaf1;
+    color: black;
+    font-size: 24px;
+    border: 1px solid black;
+    width: 50%;
+    height: 100%;
+}
