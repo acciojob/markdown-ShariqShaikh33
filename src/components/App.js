@@ -1,17 +1,33 @@
-import React from "react";
-import { useState } from "react";
-import "../styles/App.css";
-const App=()=>{
-    const [markdown, setMarkdown] = useState("");
+import React, { useState, useEffect } from 'react';
+import { marked } from 'marked';
+import '../styles/App.css';
+const App = () => {
+    const [text,setText] = useState("");
+    let [loading, setLoading] = useState(true);
 
-    return (
-        <div className="mainDiv">
-            <div className="textarea">
-                <textarea value={markdown} onChange={e => setMarkdown(e.value)} className="text"></textarea>  
-            </div>
-            <div className="preview">  </div>
-        </div>
-    )
+    useEffect(()=>{
+        setLoading(false);
+    },[])
+
+    let onInput = (e) => {
+        setText(e.target.value);
+    }
+
+  return (
+    
+    <div className="app">
+        {loading ? (<div className="loading">Loading...</div>) : (
+      <><textarea className='textarea' value={text} onChange={onInput}>
+
+              </textarea>
+              <div
+                  className='preview'
+                  dangerouslySetInnerHTML={{ __html: marked(text) }}>
+                  </div></>
+        )
+    }
+    </div>
+  );
 }
 
 export default App;

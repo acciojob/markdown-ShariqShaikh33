@@ -7,15 +7,18 @@ module.exports = {
         path: path.join(__dirname,"/dist"),
         filename: "index_bundle.js",
     },
-    module:{
+    module: {
         rules: [
-            {
-                test: /\.js$|\.jsx$/,
-                exclude: /node_modules/,
-                use: {
-                    loader: 'babel-loader'
-                }
+          {
+            test: /\.js$|\.jsx$/,
+            exclude: /node_modules/,
+            use: {
+              loader: "babel-loader",
+              options: {
+                presets: ["@babel/preset-react", "@babel/preset-env"],
+              },
             },
+          },
             {
                 test: /\.css$/,
                 use: [
